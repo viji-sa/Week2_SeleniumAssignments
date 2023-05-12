@@ -1,11 +1,12 @@
 package week2.day1;
 
-import java.util.concurrent.TimeUnit;
+import java.time.Duration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
 public class HomeAssignment_Facebook {
+	/************************FINISHED******************************/
 
 	public static void main(String[] args) {
 		// Step 1: Download and set the path // Step 2: Launch the chrome browser
@@ -21,7 +22,7 @@ public class HomeAssignment_Facebook {
 		driver.findElement(By.xpath("//button[contains(text(),'Allow all cookies')]")).click();			
 
 		// Step 5: Add implicit wait
-		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);		
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));		
 		
 		// Step 6: Click on Create New Account button		
 		driver.findElement(By.xpath("//a[contains(text(),'Create new account')]")).click();
@@ -46,9 +47,10 @@ public class HomeAssignment_Facebook {
 		
 		Select year= new Select(driver.findElement(By.xpath("//select[@title='Year']")));
 		year.selectByVisibleText("1995");
-			
+	
 		// Step 12: Select the radio button "Female" ( A normal click will do for this step) 
-		driver.findElement(By.className("_58mt")).click();
+		//driver.findElement(By.className("_58mt")).click(); or
+		driver.findElement(By.xpath("//input[@name='sex']")).click();
 				
 		//Submit button
 		driver.findElement(By.name("websubmit")).click();
